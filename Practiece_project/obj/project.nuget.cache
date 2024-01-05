@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZcdV6KD8qHD3BnJOejoAFZSpGniDMaD9kdAEbjSSVADGQNvATgVib2Jw5VOWBgX1q1Im514JpzwYNlmIReijXw==",
+  "success": true,
+  "projectFilePath": "D:\\01_FIL_Training\\01_Code_Practiece\\practice-projects\\Practiece_project\\Practiece_project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Abylle\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Abylle\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Abylle\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\Abylle\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Abylle\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Abylle\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
