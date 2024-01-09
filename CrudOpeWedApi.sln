@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudOpeWedApi", "CrudOpeWedApi.csproj", "{A9E4D1C8-4937-489D-AEE8-28DB75C0B936}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9E4D1C8-4937-489D-AEE8-28DB75C0B936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E4D1C8-4937-489D-AEE8-28DB75C0B936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E4D1C8-4937-489D-AEE8-28DB75C0B936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E4D1C8-4937-489D-AEE8-28DB75C0B936}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6183EEA-D68A-4E91-9F92-9D1F4C59246B}
+	EndGlobalSection
+EndGlobal
