@@ -1,0 +1,160 @@
+﻿@* @using MVC_TimeTracker;
+
+@{
+    ViewData["Title"] = "Reports";
+}
+
+<h2>Reports</h2>
+<style>
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .green-button {
+        background-color: green;
+        color: white;
+    }
+
+    .red-button {
+        background-color: red;
+        color: white;
+    }
+</style>
+
+<form id="downloadForm" method="post" action="/Reports/DownloadExcel" style="padding: 20px; background-color: #f7f7f7; border: 1px solid #e1e1e1; border-radius: 5px;">
+    <div class="row">
+        <div class="col-6" style="margin-bottom: 15px;">
+            <label for="selectUser" style="margin-bottom: 5px;">Select Employee:</label>
+            <select id="selectUser" name="selectUser" class="form-control">
+                <option value="">-- Select Employee --</option>
+                @foreach (var user in ViewBag.Usernames)
+                {
+                    <option value="@user">@user</option>
+                }
+            </select>
+        </div>
+        <div class="col-6" style="margin-bottom: 15px;">
+            <label for="selectDate" style="margin-bottom: 5px;">Select Date:</label>
+            <input type="date" id="selectDate" name="selectDate" class="form-control" />
+        </div>
+    </div>
+ 
+    <div class="button-container">
+        <button type="submit" class="btn btn-primary green-button" style="padding: 10px 20px; margin-right: 10px;">Download Excel</button>
+        <button type="submit" class="btn btn-primary red-button" onclick="document.getElementById('downloadForm').action='/Reports/DownloadPDF'" style="padding: 10px 20px;">Download PDF</button>
+    </div>
+</form>
+ *@
+
+
+
+
+
+@using MVC_TimeTracker;
+
+@{
+
+    ViewData["Title"] = "Reports";
+
+}
+
+
+
+<style>
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .green-button {
+        background-color: green;
+        color: white;
+    }
+
+    .red-button {
+        background-color: red;
+        color: white;
+    }
+
+</style>
+
+<section class="vh-100 d-flex align-items-center justify-content-center" style="background-color: #3498db;">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-12 col-xl-11">
+
+                <div class="card text-black" style="border-radius: 25px; background-color: #ffffff; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+
+                    <div class="card-body p-md-5">
+
+                        <div class="row justify-content-center">
+
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Reports</p>
+
+                                <form id="downloadForm" method="post" action="/Reports/DownloadExcel">
+
+                                    <div class="row">
+
+                                        <div class="col-6" style="margin-bottom: 15px;">
+
+                                            <label for="selectUser" style="margin-bottom: 5px;">Select User:</label>
+
+                                            <select id="selectUser" name="selectUser" class="form-control">
+
+                                                <option value="">-- Select User --</option>
+
+                                                @foreach (var user in ViewBag.Usernames)
+
+                                                {
+
+                                                    <option value="@user">@user</option>
+
+                                                }
+
+                                            </select>
+
+                                        </div>
+
+                                        <div class="col-6" style="margin-bottom: 15px;">
+
+                                            <label for="selectDate" style="margin-bottom: 5px;">Select Date:</label>
+
+                                            <input type="date" id="selectDate" name="selectDate" class="form-control" />
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="button-container">
+
+                                        <button type="submit" class="btn btn-primary green-button" style="padding: 10px 20px; margin-right: 10px;">Download Excel</button>
+
+                                        <button type="submit" class="btn btn-primary red-button" onclick="document.getElementById('downloadForm').action='/Reports/DownloadPDF'" style="padding: 10px 20px;">Download PDF</button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+

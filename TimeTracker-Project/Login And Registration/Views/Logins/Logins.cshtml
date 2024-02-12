@@ -1,0 +1,210 @@
+﻿@* @model MVC_TimeTracker.Models.UserLoginViewModel;
+
+
+@{
+    ViewData["Title"] = "Logins";
+}
+
+
+<style>
+    body {
+        background-color: #9678b6;
+        background-image: url('https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg?size=626&ext=jpg');
+        background-size: cover; 
+    }
+
+    .card {
+        padding: 40px;
+        margin-top: 40px;
+    }
+</style>
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-3 card p-3">
+        <h2 class="text-center text-info">Login</h2>
+        <form asp-action="Logins" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="UserName" class="control-label">UserName</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+          
+            <div class="mb-1">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    @* <a asp-controller="Register" asp-action="Register" class="text-decoration-none float-start mt-2">Don't have account?</a> 
+                    <a href="@Url.Action("Register","Register")">Don't have account?</a>
+                </div>
+                <div class="col-4">
+                    <input type="submit" value="Login" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <a asp-action="ResetPassword" class="text-decoration-none float-start mt-2">Forget Password</a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger" role="alert">
+        @Html.ValidationSummary()
+    </div>
+}
+
+ *@
+
+
+
+@model MVC_TimeTracker.Models.UserLoginViewModel;
+
+@{
+    ViewData["Title"] = "Logins";
+}
+
+@if(TempData["SuccesssMessage"]!=null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["SuccesssMessage"]</p>
+
+    <script>
+        setTimeout(function () {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+    </script>
+}
+
+@if (TempData["Registration Message "] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Registration Message "]</p>
+
+    <script>
+        setTimeout(function () {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+    </script>
+}
+
+
+<section class="vh-100 d-flex align-items-center justify-content-center" style="background-color: #3498db;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
+                                <form asp-action="Logins" method="post" class="mx-1 mx-md-4">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label" for="UserName">Your Name</label>
+                                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" asp-for="UserName" class="form-control" />
+                                            <span asp-validation-for="UserName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label" for="Password">Password</label>
+                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" asp-for="Password" class="form-control" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <a href="@Url.Action("Register","Register")">Don't have an account?</a>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="submit" value="Login" class="btn btn-primary btn-sm float-end" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <a asp-action="ResetPassword" class="text-decoration-none float-start mt-2">Forget Password</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                     class="img-fluid" alt="Sample image"> 
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

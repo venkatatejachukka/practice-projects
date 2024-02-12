@@ -1,0 +1,120 @@
+﻿
+ @using MVC_TimeTracker;
+@model TaskViewModel;
+
+<p>Welcome user</p>
+
+@{
+    ViewBag.Title = "User Data";
+}
+@if (TempData.Peek("UserName") != null)
+{
+    <div class="text-end mb-2">
+        <span>Welcome, <strong>@TempData.Peek("UserName") </strong>!</span>
+        <a href="/Logins/Logins" class="btn btn-outline-danger">Logout</a>
+    </div>
+}
+
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    <script>
+        setTimeout(function () {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+    </script>
+}
+
+@if (TempData["LoginSuccess"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["LoginSuccess"]</p>
+
+    <script>
+        setTimeout(function () {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 5000);
+    </script>
+}
+
+
+<script>
+    function showCreateTaskForm() {
+        var createTaskForm = document.getElementById("createTaskForm");
+        createTaskForm.style.display = "block";
+
+        var allTasksSection = document.getElementById("allTasks");
+        allTasksSection.style.display = "none";
+    }
+
+    function showReports() {
+        window.location.href = "/Reports/Reports";
+    }
+</script>
+<section class="vh-100 d-flex align-items-center justify-content-center" style="background-color: #E6E8E5;">
+
+<div class="container">
+    <div id="createTaskForm" style="padding: 20px; background-color: #ffffff; border: 1px solid #e1e1e1; border-radius: 25px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+        <h4 class="text-center mb-4">Create Task</h4>
+        <form method="post" action="/Task/SaveTask">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="ProjectId" class="form-label">Project Name:</label>
+                    <select name="ProjectId" class="form-control">
+                        <option>----SELECT PROJECT NAME----</option>
+                        @foreach (var project in ViewBag.Projects)
+                        {
+                            <option value="@project.ProjectId">@project.ProjectName</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="LocationId" class="form-label">Location:</label>
+                    <select name="LocationId" class="form-control">
+                        <option>----SELECT LOCATION----</option>
+                        @foreach (var location in ViewBag.Locations)
+                        {
+                            <option value="@location.LocationId">@location.LocationName</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="CREATIONDATE" class="form-label">Date:</label>
+                    <input type="date" name="CREATIONDATE" class="form-control" required />
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="StartTime" class="form-label">Start Time:</label>
+                    <input asp-for="StartTime" type="time" class="form-control" required />
+                </div>
+                <div class="col-6 mb-3">
+                    <label for="EndTime" class="form-label">End Time:</label>
+                    <input asp-for="EndTime" type="time" class="form-control" required />
+                </div>
+                <div class="col-2 mb-3">
+                    <label for="UserStoryBugNumber" class="form-label">User Story/Bug Number:</label>
+                    <input type="text" name="UserStoryBugNumber" class="form-control" required />
+                </div>
+                <div class="col-10 mb-3">
+                    <label for="TaskDescription" class="form-label">Task Description:</label>
+<textarea name="TaskDescription" class="form-control" required></textarea>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn btn-primary" style="padding: 10px 20px;">Submit</button>
+                @if (Convert.ToInt32(TempData["Permision"]) == 1)
+                {
+                    <button type="button" class="btn btn-secondary" onclick="showReports()" style="padding: 10px 20px;">View Reports</button>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+</section>
+
+
+
+
+ 
+
+
+
